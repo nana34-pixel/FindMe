@@ -1,274 +1,154 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FindMe Marketplace</title>
-
-  <link rel="stylesheet" href="css/styles.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FindMe! | CercaDeTi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <script src="https://kit.fontawesome.com/7c8e4b5a29.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="global.css">
+  <style>
+    .stack { display: flex; flex-direction: column; gap: 28px; }
+    .filters { margin-bottom: 20px; }
+  </style>
 </head>
-
 <body>
-
-<header class="topbar">
-
-  <div class="logo">
-    FindMe!
-  </div>
-
-  <div class="search-box">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <input type="text" placeholder="Buscar productos cerca de ti">
-  </div>
-
-  <div class="top-actions">
-
-    <button class="location-btn">
-      📍 Ciudad López Mateos
-    </button>
-
-    <button class="sell-btn">
-      Vender
-    </button>
-
-    <button class="icon-btn">
-      <i class="fa-solid fa-bell"></i>
-    </button>
-
-    <img src="img/user.jpg" class="user-avatar">
-
-  </div>
-
-</header>
-
-<div class="layout">
-
-  <aside class="sidebar">
-
-    <nav>
-
-      <a class="active-link">
-        <i class="fa-solid fa-house"></i>
-        Inicio
-      </a>
-
-      <a>
-        <i class="fa-solid fa-location-dot"></i>
-        Explorar cerca de mí
-      </a>
-
-      <a>
-        <i class="fa-solid fa-bookmark"></i>
-        Guardados
-      </a>
-
-      <a href="chat.html">
-        <i class="fa-solid fa-message"></i>
-        Mensajes
-      </a>
-
-      <a>
-        <i class="fa-solid fa-box"></i>
-        Mis publicaciones
-      </a>
-
-      <a>
-        <i class="fa-solid fa-bell"></i>
-        Notificaciones
-      </a>
-
-      <a>
-        <i class="fa-solid fa-heart"></i>
-        Favoritos
-      </a>
-
-    </nav>
-
-    <div class="categories">
-
-      <h3>Categorías</h3>
-
-      <span>Tecnología</span>
-      <span>Hogar</span>
-      <span>Ropa y accesorios</span>
-      <span>Vehículos</span>
-      <span>Deportes</span>
-      <span>Juguetes y hobbies</span>
-      <span>Servicios</span>
-
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-badge"><i class='bx bxs-store-alt'></i></div>
+      <div>FindMe!</div>
     </div>
+    <div class="topbar-inner">
+      <div class="searchbar" role="search">
+        <i class='bx bx-search'></i>
+        <input id="searchInput" type="text" placeholder="Buscar productos, marcas, vendedores..." />
+      </div>
+      <button class="location-chip"><i class='bx bx-map'></i> Ciudad López Mateos</button>
+      <button class="pill-btn primary" onclick="window.location.href='productos.html'"><i class='bx bx-plus-circle'></i><span>Vender</span></button>
+      <button class="pill-btn" onclick="window.location.href='login.html'"><i class='bx bx-user-circle'></i><span>Mi cuenta</span></button>
+      <button class="icon-btn"><i class='bx bx-bell'></i></button>
+      <img class="avatar" src="https://i.pravatar.cc/150?img=12" alt="Perfil" />
+    </div>
+  </header>
 
-  </aside>
-
-  <main class="feed">
-
-    <section class="hero">
-
-      <div class="hero-text">
-
-        <h1>
-          Encuentra lo que necesitas cerca de ti
-        </h1>
-
-        <p>
-          Compra y vende con personas reales de tu zona
-        </p>
-
-        <div class="hero-buttons">
-
-          <button class="primary-btn">
-            Explorar cerca de mí
-          </button>
-
-          <button class="secondary-btn">
-            Publicar producto
-          </button>
-
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="section"><h4>Navegación</h4>
+        <a class="nav-item active" href="index.html"><i class='bx bx-home-alt-2'></i>Inicio</a>
+        <a class="nav-item" href="#"><i class='bx bx-map-alt'></i>Explorar cerca</a>
+        <a class="nav-item" href="#"><i class='bx bx-bookmark-heart'></i>Guardados</a>
+        <a class="nav-item" href="chat.html"><i class='bx bx-message-dots'></i>Mensajes</a>
+        <a class="nav-item" href="productos.html"><i class='bx bx-store'></i>Mis publicaciones</a>
+        <a class="nav-item" href="#"><i class='bx bx-bell-ring'></i>Notificaciones</a>
+        <a class="nav-item" href="#"><i class='bx bx-heart'></i>Favoritos</a>
+        <a class="nav-item" href="login.html" style="margin-top:12px; border-top:1px solid var(--border);"><i class='bx bx-log-out'></i>Cerrar sesión</a>
+      </div>
+      <div class="section"><h4>Categorías</h4>
+        <div class="category-list" id="categoryList">
+          <button class="category-item active" data-category="all"><span>Todos</span><small>20</small></button>
+          <button class="category-item" data-category="technology"><span>Tecnología</span><small>8</small></button>
+          <button class="category-item" data-category="home"><span>Hogar</span><small>4</small></button>
+          <button class="category-item" data-category="fashion"><span>Ropa</span><small>3</small></button>
+          <button class="category-item" data-category="sports"><span>Deportes</span><small>3</small></button>
+          <button class="category-item" data-category="vehicles"><span>Vehículos</span><small>2</small></button>
         </div>
-
       </div>
+    </aside>
 
-      <img src="img/hero-map.png" class="hero-image">
+    <main class="main">
+      <div class="stack">
+        <section class="hero card">
+          <div><h1>Encuentra lo que necesitas cerca de ti</h1><p>Compra y vende con personas reales de tu zona. Descubre productos, servicios y oportunidades locales.</p><div class="hero-actions"><button class="primary-btn" id="exploreNearbyBtn"><i class='bx bx-compass'></i> Explorar cerca</button><button class="secondary-btn" onclick="window.location.href='productos.html'"><i class='bx bx-upload'></i> Publicar producto</button></div></div>
+          <div class="hero-visual"><div class="map-line"></div><div class="route"></div><div class="pin p1"></div><div class="pin p2"></div><div class="pin p3"></div><div class="people"><div class="group"><img class="mini-avatar" src="https://i.pravatar.cc/120?img=25" alt=""/><img class="mini-avatar" src="https://i.pravatar.cc/120?img=32" alt=""/><img class="mini-avatar" src="https://i.pravatar.cc/120?img=15" alt=""/><div><strong>Conecta localmente</strong><span>Compradores y vendedores cerca</span></div></div><div class="badge-tag green"><i class='bx bx-current-location'></i> Cerca de ti</div></div></div>
+        </section>
 
-    </section>
+        <section class="filters">
+          <button class="chip active" data-filter="nearby"><span class="dot"></span> Cerca de mí</button>
+          <button class="chip" data-filter="budget">Menos de $5000</button>
+          <button class="chip" data-filter="new">Nuevos</button>
+          <button class="chip" data-filter="used">Usados</button>
+          <button class="chip" data-filter="today">Entrega hoy</button>
+          <button class="chip" id="moreFilters"><i class='bx bx-sliders'></i> Filtros</button>
+        </section>
 
-    <section class="filters">
-
-      <button class="chip active-chip">Cerca de mí</button>
-      <button class="chip">Menos de $500</button>
-      <button class="chip">Nuevos</button>
-      <button class="chip">Productos seminuevos</button>
-      <button class="chip">Entrega hoy</button>
-      <button class="chip">Filtros</button>
-
-    </section>
-
-    <section class="products-grid">
-
-      <div class="product-card">
-
-        <img src="img/product1.jpg">
-
-        <div class="product-info">
-
-          <div class="card-top">
-
-            <h3>iPhone 14 Pro</h3>
-
-            <button class="favorite-btn">
-              ❤️
-            </button>
-
-          </div>
-
-          <h2>$14,500</h2>
-
-          <span class="distance">
-            📍 2.5 km
-          </span>
-
-          <p>
-            Rolando S. ⭐ 4.9
-          </p>
-
-          <small>
-            Hace 2 horas
-          </small>
-
-          <button class="message-btn">
-            Enviar mensaje
-          </button>
-
-        </div>
-
+        <section class="content-grid" id="productGrid"></section>
       </div>
+    </main>
 
-    </section>
+    <aside class="right-panel">
+      <div class="panel-card"><div class="panel-header"><h3>Explora cerca de ti</h3><i class='bx bx-map-pin' style="color:var(--green)"></i></div><div class="mini-list"><div class="mini-item"><div><strong>Restaurantes</strong><small>A 5 min</small></div><i class='bx bx-restaurant'></i></div><div class="mini-item"><div><strong>Servicios</strong><small>Fontanería, clases</small></div><i class='bx bx-wrench'></i></div><div class="mini-item"><div><strong>Tiendas</strong><small>Locales con entrega rápida</small></div><i class='bx bx-store-alt'></i></div></div></div>
+      <div class="panel-card"><div class="panel-header"><h3>Promociones</h3></div><p>Publica gratis tu primer anuncio</p><div class="promo-row"><strong>0% comisión</strong><button class="primary-btn" style="padding:10px 16px;">Aprovechar</button></div></div>
+      <div class="panel-card"><div class="panel-header"><h3>Sugerencias</h3></div><div class="activity-list"><div class="activity-item"><div class="dot"></div><div><strong>Silla gamer en oferta</strong><span>Entrega en punto medio</span></div></div><div class="activity-item"><div class="dot"></div><div><strong>Monitor curvo 27"</strong><span>Muy buscado esta semana</span></div></div></div></div>
+    </aside>
+  </div>
 
-  </main>
+  <div class="chatbot" onclick="alert('Chatbot IA - próximamente')"><div class="bot-icon"><i class='bx bx-bot'></i></div><div><div class="label">Chatbot</div><div class="subtitle">Asistente IA</div></div><div class="expand"><i class='bx bx-chevron-up'></i></div></div>
 
-  <aside class="right-panel">
+  <script>
+    const products = [
+      { id: 1, title: 'Bicicleta Trek', price: 4200, distance: 1.2, seller: 'Andrea M.', rating: 4.9, time: '30 min', category: 'sports', condition: 'Usado', image: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=500', badge: 'Entrega hoy', saved: false },
+      { id: 2, title: 'iPhone 14 Pro', price: 14900, distance: 2.4, seller: 'Carlos R.', rating: 4.8, time: '2 h', category: 'technology', condition: 'Como nuevo', image: 'https://images.unsplash.com/photo-1510557880182-3c9d6dff1f7a?w=500', badge: 'Nuevo', saved: true },
+      { id: 3, title: 'Sofá 3 plazas', price: 7800, distance: 3.1, seller: 'Fernanda L.', rating: 4.7, time: '5 h', category: 'home', condition: 'Buen estado', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500', badge: 'Popular', saved: false },
+      { id: 4, title: 'Silla Gamer', price: 2600, distance: 0.8, seller: 'Rodrigo T.', rating: 5.0, time: '1 h', category: 'technology', condition: 'Como nuevo', image: 'https://images.unsplash.com/photo-1595225476474-87563907a212?w=500', badge: 'Entrega hoy', saved: false },
+      { id: 5, title: 'PS5 Digital', price: 10800, distance: 2.9, seller: 'Mariana P.', rating: 4.9, time: '3 h', category: 'technology', condition: 'Usado', image: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=500', badge: 'Top', saved: true },
+      { id: 6, title: 'Audífonos ANC', price: 1750, distance: 1.9, seller: 'Luis G.', rating: 4.6, time: '45 min', category: 'technology', condition: 'Nuevo', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500', badge: 'Oferta', saved: false },
+      { id: 7, title: 'Laptop Lenovo', price: 11250, distance: 4.5, seller: 'Paulina S.', rating: 4.8, time: '6 h', category: 'technology', condition: 'Usado', image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500', badge: 'Verificado', saved: false },
+      { id: 8, title: 'Mesa comedor', price: 3400, distance: 2.1, seller: 'Sofía D.', rating: 4.7, time: '4 h', category: 'home', condition: 'Buen estado', image: 'https://images.unsplash.com/photo-1577140917170-285929fb55b7?w=500', badge: 'Local', saved: false },
+      { id: 9, title: 'Tablet Samsung', price: 3200, distance: 1.5, seller: 'Jorge M.', rating: 4.5, time: '1 día', category: 'technology', condition: 'Nuevo', image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500', badge: 'Nuevo', saved: false },
+      { id: 10, title: 'Lavadora LG', price: 5500, distance: 3.2, seller: 'Laura G.', rating: 4.9, time: '2 días', category: 'home', condition: 'Usado', image: 'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=500', badge: 'Oferta', saved: false },
+      { id: 11, title: 'Set de ollas', price: 1200, distance: 0.9, seller: 'Ana R.', rating: 4.6, time: '5 h', category: 'home', condition: 'Como nuevo', image: 'https://images.unsplash.com/photo-1584990347449-9b4c8008e2c2?w=500', badge: 'Barato', saved: false },
+      { id: 12, title: 'Bicicleta eléctrica', price: 9800, distance: 2.2, seller: 'Carlos P.', rating: 4.9, time: '3 h', category: 'sports', condition: 'Usado', image: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=500', badge: 'Entrega hoy', saved: false },
+      { id: 13, title: 'Cámara Mirrorless', price: 12500, distance: 3.0, seller: 'Sofía L.', rating: 5.0, time: '1 h', category: 'technology', condition: 'Como nuevo', image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500', badge: 'Premium', saved: false },
+      { id: 14, title: 'Zapatos deportivos', price: 850, distance: 0.7, seller: 'Mario F.', rating: 4.4, time: '12 h', category: 'fashion', condition: 'Nuevo', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500', badge: 'Envío gratis', saved: false },
+      { id: 15, title: 'Chaqueta de cuero', price: 2100, distance: 1.8, seller: 'Valeria T.', rating: 4.8, time: '2 h', category: 'fashion', condition: 'Usado', image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500', badge: 'Negociable', saved: false },
+      { id: 16, title: 'Mochila laptop', price: 650, distance: 2.5, seller: 'Diego R.', rating: 4.5, time: '4 h', category: 'fashion', condition: 'Nuevo', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500', badge: 'Oferta', saved: false },
+      { id: 17, title: 'Set de pesas', price: 1800, distance: 3.3, seller: 'Gimnasio Local', rating: 4.7, time: '1 día', category: 'sports', condition: 'Usado', image: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=500', badge: 'Pesado', saved: false },
+      { id: 18, title: 'Aro de baloncesto', price: 3400, distance: 4.0, seller: 'Raúl M.', rating: 4.6, time: '2 días', category: 'sports', condition: 'Usado', image: 'https://images.unsplash.com/photo-1519861531473-9200262188bf?w=500', badge: 'Local', saved: false },
+      { id: 19, title: 'Auto a escala', price: 500, distance: 0.5, seller: 'Niño Feliz', rating: 4.9, time: '30 min', category: 'vehicles', condition: 'Nuevo', image: 'https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=500', badge: 'Barato', saved: false },
+      { id: 20, title: 'Bicicleta infantil', price: 2100, distance: 1.2, seller: 'Familia Gómez', rating: 4.8, time: '5 h', category: 'vehicles', condition: 'Usado', image: 'https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=500', badge: 'Entrega hoy', saved: false }
+    ];
 
-    <div class="panel-card">
+    const grid = document.getElementById('productGrid');
+    const searchInput = document.getElementById('searchInput');
+    const categoryBtns = document.querySelectorAll('.category-item');
+    const filterBtns = document.querySelectorAll('.chip[data-filter]');
+    let activeCategory = 'all';
+    let activeFilter = 'nearby';
 
-      <h3>Ofertas de vendedores</h3>
+    function formatPrice(p) { return new Intl.NumberFormat('es-MX').format(p); }
+    function renderProducts() {
+      const query = searchInput.value.trim().toLowerCase();
+      const filtered = products.filter(p => {
+        const categoryMatch = activeCategory === 'all' || p.category === activeCategory;
+        const searchMatch = !query || p.title.toLowerCase().includes(query) || p.seller.toLowerCase().includes(query);
+        let filterMatch = true;
+        if (activeFilter === 'budget') filterMatch = p.price < 5000;
+        else if (activeFilter === 'new') filterMatch = p.condition === 'Nuevo';
+        else if (activeFilter === 'used') filterMatch = p.condition === 'Usado' || p.condition === 'Buen estado';
+        else if (activeFilter === 'today') filterMatch = p.badge.includes('Entrega');
+        else if (activeFilter === 'nearby') filterMatch = p.distance <= 3.0;
+        return categoryMatch && searchMatch && filterMatch;
+      });
+      grid.innerHTML = filtered.map(p => `
+        <article class="product-card">
+          <div class="product-media"><a href="vistaproducto.html"><img src="${p.image}" alt="${p.title}"></a><div class="product-badges"><span class="badge-tag ${p.badge === 'Nuevo' ? 'green' : 'dark'}">${p.badge}</span></div><button class="favorite-btn ${p.saved ? 'active' : ''}" data-id="${p.id}"><i class='bx ${p.saved ? 'bxs-heart' : 'bx-heart'}'></i></button></div>
+          <div class="product-body"><a href="vistaproducto.html"><h3 class="product-title">${p.title}</h3></a><div class="price-row"><div class="price">$${formatPrice(p.price)}</div><div class="seller-rating"><i class='bx bxs-star'></i> ${p.rating}</div></div><div class="meta-row"><span><i class='bx bx-current-location'></i> ${p.distance} km</span><span><i class='bx bx-user-circle'></i> ${p.seller}</span><span><i class='bx bx-time-five'></i> ${p.time}</span></div><div class="product-actions"><button class="primary-btn" onclick="window.location.href='chat.html'"><i class='bx bx-message-rounded-dots'></i> Mensaje</button><button class="secondary-btn"><i class='bx bx-dots-horizontal-rounded'></i></button></div></div>
+        </article>
+      `).join('');
+      document.querySelectorAll('.favorite-btn').forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); const id = parseInt(btn.dataset.id); const prod = products.find(p => p.id === id); if(prod) { prod.saved = !prod.saved; renderProducts(); } }));
+    }
 
-      <div class="mini-item">
-        🔥 iPhone con envío gratis
-      </div>
-
-      <div class="mini-item">
-        🚚 Entrega gratis en tecnología
-      </div>
-
-      <div class="mini-item">
-        💸 Descuento local en muebles
-      </div>
-
-      <div class="mini-item">
-        🎧 Audífonos con entrega inmediata
-      </div>
-
-    </div>
-
-    <div class="panel-card">
-
-      <h3>Entregas Gratis</h3>
-
-      <div class="mini-item">
-        🪑 Sillas Gamer
-      </div>
-
-      <div class="mini-item">
-        🎮 Consolas
-      </div>
-
-      <div class="mini-item">
-        📱 Smartphones
-      </div>
-
-      <div class="mini-item">
-        💻 Tecnología usada
-      </div>
-
-    </div>
-
-    <div class="panel-card">
-
-      <h3>Actividad cercana</h3>
-
-      <div class="mini-item">
-        20 nuevos productos hoy
-      </div>
-
-      <div class="mini-item">
-        15 vendedores activos
-      </div>
-
-      <div class="mini-item">
-        8 entregas realizadas cerca de ti
-      </div>
-
-    </div>
-
-  </aside>
-
-</div>
-
-<div class="chatbot">
-
-  <div class="online-dot"></div>
-
-  🤖 Chatbot
-
-</div>
-
-<script src="js/app.js"></script>
-
+    categoryBtns.forEach(btn => btn.addEventListener('click', () => { categoryBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active'); activeCategory = btn.dataset.category; renderProducts(); }));
+    filterBtns.forEach(btn => btn.addEventListener('click', () => { filterBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active'); activeFilter = btn.dataset.filter; renderProducts(); }));
+    searchInput.addEventListener('input', renderProducts);
+    document.getElementById('moreFilters').addEventListener('click', () => alert('Filtros avanzados próximamente'));
+    document.getElementById('exploreNearbyBtn').addEventListener('click', () => {
+      document.querySelector('.chip[data-filter="nearby"]').click();
+      window.scrollTo({ top: document.querySelector('.filters').offsetTop - 100, behavior: 'smooth' });
+    });
+    renderProducts();
+  </script>
 </body>
 </html>
