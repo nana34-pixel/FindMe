@@ -12,30 +12,13 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">
-      <div class="brand-badge"><i class="fa-solid fa-location-dot"></i></div>
-      <div>FindMe!</div>
-    </div>
+    <div class="brand"><div class="brand-badge"><i class="fa-solid fa-store"></i></div><div>FindMe!</div></div>
     <div class="topbar-inner">
-      <div class="searchbar">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Buscar productos, vendedores...">
-      </div>
-      <button class="location-chip" type="button">
-        <i class="fa-solid fa-map-pin"></i>
-        Ciudad López Mateos
-      </button>
-      <button class="pill-btn primary" type="button" onclick="window.location.href='productos.html'">
-        <i class="fa-solid fa-store"></i>
-        <span>Vender</span>
-      </button>
-      <button class="pill-btn" type="button" onclick="window.location.href='login.html'">
-        <i class="fa-solid fa-user"></i>
-        <span>Mi cuenta</span>
-      </button>
-      <button class="icon-btn" type="button" aria-label="Notificaciones">
-        <i class="fa-regular fa-bell"></i>
-      </button>
+      <div class="searchbar"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Buscar productos..."></div>
+      <button class="location-chip"><i class="fa-solid fa-map-pin"></i> Ciudad López Mateos</button>
+      <button class="pill-btn primary" onclick="window.location.href='productos.html'"><i class="fa-solid fa-plus"></i><span>Vender</span></button>
+      <button class="pill-btn" onclick="window.location.href='login.html'"><i class="fa-regular fa-user"></i><span>Mi cuenta</span></button>
+      <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
       <img class="avatar" src="https://i.pravatar.cc/150?img=12" alt="Perfil">
     </div>
   </header>
@@ -45,52 +28,24 @@
       <div class="section">
         <h4>Navegación</h4>
         <a class="nav-item" href="index.html"><i class="fa-solid fa-house"></i>Inicio</a>
-        <a class="nav-item" href="#"><i class="fa-solid fa-compass"></i>Explorar cerca de mí</a>
+        <a class="nav-item" href="#"><i class="fa-solid fa-compass"></i>Explorar cerca</a>
         <a class="nav-item" href="#"><i class="fa-regular fa-bookmark"></i>Guardados</a>
-        <a class="nav-item" href="chat.html"><i class="fa-solid fa-message"></i>Mensajes</a>
+        <a class="nav-item" href="chat.html"><i class="fa-regular fa-message"></i>Mensajes</a>
         <a class="nav-item" href="productos.html"><i class="fa-solid fa-box"></i>Mis publicaciones</a>
-        <a class="nav-item" href="#"><i class="fa-regular fa-bell"></i>Notificaciones</a>
-        <a class="nav-item active" href="#"><i class="fa-regular fa-heart"></i>Favoritos</a>
-        <a class="nav-item" href="login.html" style="margin-top:12px; border-top:1px solid var(--border);"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>
-      </div>
-      <div class="section">
-        <h4>Categorías</h4>
-        <div class="category-list">
-          <button class="category-item"><span>Tecnología</span><small>24</small></button>
-          <button class="category-item"><span>Hogar</span><small>12</small></button>
-          <button class="category-item"><span>Ropa y accesorios</span><small>18</small></button>
-          <button class="category-item"><span>Vehículos</span><small>6</small></button>
-          <button class="category-item"><span>Deportes</span><small>9</small></button>
-          <button class="category-item"><span>Servicios</span><small>8</small></button>
-        </div>
       </div>
     </aside>
 
     <main class="main">
       <div class="breadcrumbs">
-        <a href="index.html">Inicio</a>
-        <i class="fa-solid fa-chevron-right" style="font-size:11px"></i>
-        <span>Monitor Curvo 27"</span>
+        <a href="index.html">Inicio</a><i class="fa-solid fa-chevron-right" style="font-size:11px; margin: 0 8px;"></i><span>Monitor Curvo 27"</span>
       </div>
 
       <div class="product-detail-layout">
         <div class="product-gallery">
-          <div class="main-image-detail">
-            <img id="mainImg" src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800" alt="Monitor Curvo">
-          </div>
+          <div class="main-image-detail"><img id="mainImg" src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800" alt="Monitor Curvo"></div>
           <div class="thumb-list">
-            <div class="thumb-detail active" data-img="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800">
-              <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=150" alt="Vista 1">
-            </div>
-            <div class="thumb-detail" data-img="https://images.unsplash.com/photo-1527814050087-3793815479db?w=800">
-              <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=150" alt="Vista 2">
-            </div>
-            <div class="thumb-detail" data-img="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800">
-              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=150" alt="Vista 3">
-            </div>
-            <div class="thumb-detail" data-img="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=800">
-              <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=150" alt="Vista 4">
-            </div>
+            <div class="thumb-detail active" data-img="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=150" alt="1"></div>
+            <div class="thumb-detail" data-img="https://images.unsplash.com/photo-1527814050087-3793815479db?w=800"><img src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=150" alt="2"></div>
           </div>
         </div>
 
@@ -98,36 +53,25 @@
           <h1>Monitor Curvo 27 pulgadas</h1>
           <div class="product-meta">
             <span><i class="fa-regular fa-clock"></i> Hace 2 horas</span>
-            <span><i class="fa-solid fa-location-dot"></i> A 2.5 km</span>
+            <span><i class="fa-solid fa-location-crosshairs"></i> A 2.5 km</span>
             <span><i class="fa-solid fa-star" style="color:#F59E0B;"></i> 4.9 (15 ventas)</span>
           </div>
           <div class="product-price-detail">$2,500</div>
           <div class="action-buttons">
-            <button class="btn-primary" onclick="window.location.href='chat.html'">
-              <i class="fa-regular fa-message"></i> Enviar mensaje
-            </button>
-            <button class="btn-secondary" id="offerBtn">
-              <i class="fa-regular fa-hand-peace"></i> Hacer oferta
-            </button>
+            <button class="btn-primary" onclick="window.location.href='chat.html'"><i class="fa-regular fa-message"></i> Enviar mensaje</button>
+            <button class="btn-secondary" id="offerBtn"><i class="fa-solid fa-handshake"></i> Hacer oferta</button>
           </div>
           <div class="seller-card-detail">
             <img class="seller-avatar-detail" src="https://i.pravatar.cc/150?img=12" alt="Vendedor">
             <div class="seller-info">
               <h4>Rolando S.</h4>
               <div class="seller-stars"><i class="fa-solid fa-star"></i> 4.9/5</div>
-              <div>15 ventas concretadas</div>
             </div>
-            <button class="pill-btn" style="margin-left: auto;" onclick="alert('Ver perfil completo del vendedor')">Ver perfil</button>
+            <button class="pill-btn" style="margin-left:auto;">Ver perfil</button>
           </div>
-          <div class="description">
+          <div class="description" style="margin-top:24px;">
             <strong>Descripción</strong>
-            <p>Monitor curvo de 27" Full HD, excelente estado, incluye cable HDMI y fuente de poder. Ideal para trabajo o gaming casual. Entrega en punto público seguro.</p>
-            <ul class="bullets" style="margin-top: 12px;">
-              <li>Pantalla curva de 27” Full HD</li>
-              <li>Frecuencia de actualización 75Hz</li>
-              <li>Incluye soporte y cableado básico</li>
-              <li>Disponible para entrega en punto medio seguro</li>
-            </ul>
+            <p style="color:var(--muted); margin-top:8px;">Monitor curvo de 27" Full HD, excelente estado, incluye cable HDMI y fuente de poder. Ideal para trabajo o gaming casual. Entrega en punto público seguro.</p>
           </div>
         </div>
       </div>
@@ -142,26 +86,15 @@
     </div>
     <div class="expand"><i class="fa-solid fa-chevron-up"></i></div>
   </div>
-
+  
   <script>
     const thumbs = document.querySelectorAll('.thumb-detail');
     const mainImg = document.getElementById('mainImg');
     thumbs.forEach(thumb => {
       thumb.addEventListener('click', () => {
-        thumbs.forEach(t => t.classList.remove('active'));
-        thumb.classList.add('active');
-        const newSrc = thumb.dataset.img;
-        mainImg.style.opacity = '0';
-        setTimeout(() => {
-          mainImg.src = newSrc;
-          mainImg.style.opacity = '1';
-        }, 150);
+        thumbs.forEach(t => t.classList.remove('active')); thumb.classList.add('active');
+        mainImg.src = thumb.dataset.img;
       });
-    });
-    document.getElementById('offerBtn').addEventListener('click', () => {
-      let oferta = prompt('Ingresa tu oferta en pesos:');
-      if (oferta && !isNaN(oferta)) alert(`Oferta de $${oferta} enviada al vendedor.`);
-      else if (oferta) alert('Por favor ingresa un número válido.');
     });
   </script>
 </body>

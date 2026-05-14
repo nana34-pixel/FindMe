@@ -13,7 +13,7 @@
 <body>
   <header class="topbar">
     <div class="brand">
-      <div class="brand-badge"><i class="fa-solid fa-location-dot"></i></div>
+      <div class="brand-badge"><i class="fa-solid fa-store"></i></div>
       <div>FindMe!</div>
     </div>
     <div class="topbar-inner">
@@ -22,31 +22,27 @@
         <input type="text" placeholder="Buscar productos, categorías o vendedores...">
       </div>
       <button class="location-chip" type="button">
-        <i class="fa-solid fa-map-pin"></i>
-        Ciudad López Mateos
+        <i class="fa-solid fa-map-pin"></i> Ciudad López Mateos
       </button>
       <button class="pill-btn primary" type="button" onclick="window.location.href='productos.html'">
-        <i class="fa-solid fa-store"></i>
-        <span>Vender</span>
+        <i class="fa-solid fa-plus"></i><span>Vender</span>
       </button>
       <button class="pill-btn" type="button" onclick="window.location.href='login.html'">
-        <i class="fa-solid fa-user"></i>
-        <span>Mi cuenta</span>
+        <i class="fa-regular fa-user"></i><span>Mi cuenta</span>
       </button>
-      <button class="icon-btn" type="button" aria-label="Notificaciones">
-        <i class="fa-regular fa-bell"></i>
-        <span class="badge"></span>
+      <button class="icon-btn" type="button">
+        <i class="fa-regular fa-bell"></i><span class="badge"></span>
       </button>
-      <img class="avatar" src="https://i.pravatar.cc/150?img=12" alt="Foto de Rolando">
+      <img class="avatar" src="https://i.pravatar.cc/150?img=12" alt="Perfil">
     </div>
   </header>
 
-  <div class="layout">
+  <div class="layout with-right-panel">
     <aside class="sidebar">
       <div class="section">
         <h4>Navegación</h4>
         <a class="nav-item" href="index.html"><i class="fa-solid fa-house"></i>Inicio</a>
-        <a class="nav-item" href="#"><i class="fa-solid fa-compass"></i>Explorar cerca de mí</a>
+        <a class="nav-item" href="#"><i class="fa-solid fa-compass"></i>Explorar cerca</a>
         <a class="nav-item" href="#"><i class="fa-regular fa-bookmark"></i>Guardados</a>
         <a class="nav-item active" href="chat.html"><i class="fa-regular fa-message"></i>Mensajes</a>
         <a class="nav-item" href="productos.html"><i class="fa-solid fa-box"></i>Mis publicaciones</a>
@@ -60,9 +56,6 @@
           <button class="category-item"><span>Tecnología</span><small>24</small></button>
           <button class="category-item"><span>Hogar</span><small>12</small></button>
           <button class="category-item"><span>Ropa y accesorios</span><small>18</small></button>
-          <button class="category-item"><span>Vehículos</span><small>6</small></button>
-          <button class="category-item"><span>Deportes</span><small>9</small></button>
-          <button class="category-item"><span>Servicios</span><small>8</small></button>
         </div>
       </div>
     </aside>
@@ -80,8 +73,7 @@
             <div class="conversation active" data-seller="Fernando Ruiz" data-product="Silla Gamer" data-status="1 nuevo">
               <img src="https://i.pravatar.cc/150?img=13" alt="Fernando Ruiz">
               <div class="conversation-info">
-                <h4>Fernando Ruiz</h4>
-                <p>Silla Gamer RGB</p>
+                <h4>Fernando Ruiz</h4><p>Silla Gamer RGB</p>
                 <div class="list-meta"><i class="fa-regular fa-clock"></i><span>Hace 5 min</span></div>
               </div>
               <div class="new-badge">1 nuevo</div>
@@ -89,17 +81,8 @@
             <div class="conversation" data-seller="Alejandra M." data-product="Procesador Ryzen" data-status="">
               <img src="https://i.pravatar.cc/150?img=32" alt="Alejandra M.">
               <div class="conversation-info">
-                <h4>Alejandra M.</h4>
-                <p>Procesador Ryzen 7</p>
+                <h4>Alejandra M.</h4><p>Procesador Ryzen 7</p>
                 <div class="list-meta"><i class="fa-regular fa-clock"></i><span>Hace 40 min</span></div>
-              </div>
-            </div>
-            <div class="conversation" data-seller="Daniel López" data-product="iPhone 14 Pro" data-status="">
-              <img src="https://i.pravatar.cc/150?img=15" alt="Daniel López">
-              <div class="conversation-info">
-                <h4>Daniel López</h4>
-                <p>iPhone 14 Pro</p>
-                <div class="list-meta"><i class="fa-regular fa-clock"></i><span>Ayer</span></div>
               </div>
             </div>
           </div>
@@ -132,22 +115,9 @@
           </div>
 
           <div class="messages" id="messages">
-            <div class="message received">
-              ¡Hola! Sí sigue disponible la silla gamer 😄
-              <div class="message-time">10:30 AM</div>
-            </div>
-            <div class="message sent">
-              Perfecto, ¿tiene algún detalle o desgaste?
-              <div class="message-time">10:31 AM</div>
-            </div>
-            <div class="message received">
-              Está prácticamente nueva, solo la usé unos meses para home office.
-              <div class="message-time">10:32 AM</div>
-            </div>
-            <div class="message sent">
-              Excelente. ¿Podemos vernos en Plaza Satélite?
-              <div class="message-time">10:34 AM</div>
-            </div>
+            <div class="message received">¡Hola! Sí sigue disponible la silla gamer 😄<div class="message-time">10:30 AM</div></div>
+            <div class="message sent">Perfecto, ¿tiene algún detalle o desgaste?<div class="message-time">10:31 AM</div></div>
+            <div class="message received">Está prácticamente nueva, solo la usé unos meses para home office.<div class="message-time">10:32 AM</div></div>
           </div>
 
           <div class="chat-input">
@@ -174,59 +144,39 @@
         <h3>Lugares seguros para entregar</h3>
         <div class="safe-place"><div class="safe-place-icon"><i class="fa-solid fa-shop"></i></div><div><strong>Plaza Satélite</strong><p>Zona concurrida y segura</p></div></div>
         <div class="safe-place"><div class="safe-place-icon"><i class="fa-solid fa-mug-hot"></i></div><div><strong>Cafetería Central</strong><p>Punto público recomendado</p></div></div>
-        <div class="safe-place"><div class="safe-place-icon"><i class="fa-solid fa-shield"></i></div><div><strong>Estación de Policía</strong><p>Entrega protegida</p></div></div>
-        <div class="safe-place"><div class="safe-place-icon"><i class="fa-solid fa-tree"></i></div><div><strong>Parque Naucalli</strong><p>Zona pública activa</p></div></div>
       </div>
       <div class="panel-card">
         <h3>Publicaciones del mismo vendedor</h3>
         <div class="mini-product"><img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=100" alt="Monitor"><div><strong>Monitor 144Hz</strong><p>$2,800</p></div></div>
-        <div class="mini-product"><img src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=100" alt="Teclado"><div><strong>Teclado Mecánico</strong><p>$1,100</p></div></div>
-      </div>
-      <div class="panel-card">
-        <h3>Promociones locales</h3>
-        <div class="suggestion"><strong>Descuento en cafeterías aliadas</strong><small>Ideal para concretar entregas rápidas</small></div>
-        <div class="suggestion"><strong>Espacios de coworking cercanos</strong><small>Encuentra puntos cómodos para cerrar ventas</small></div>
-      </div>
-      <div class="panel-card">
-        <h3>Sugerencias para ti</h3>
-        <div class="suggestion"><strong>Silla gamer ergonómica</strong><small>Muy buscada en tu zona esta semana</small></div>
-        <div class="suggestion"><strong>Procesador Ryzen 7</strong><small>Disponible a unos minutos</small></div>
       </div>
     </aside>
   </div>
 
   <div class="chatbot" role="button" onclick="alert('Chatbot IA - próximamente')">
-    <i class="fa-solid fa-robot"></i>
-    <span>Chatbot</span>
-    <div class="online-dot"></div>
-    <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+    <div class="bot-icon"><i class="fa-solid fa-robot"></i></div>
+    <div>
+      <div class="label">Chatbot</div>
+      <div class="subtitle">Asistente IA en línea</div>
+    </div>
+    <div class="expand"><i class="fa-solid fa-chevron-up"></i></div>
   </div>
 
   <script>
+    // Toda tu lógica de JS para chat se mantiene intacta
     const convoData = {
       'Fernando Ruiz': {
         avatar: 'https://i.pravatar.cc/150?img=13',
         image: 'https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=100',
-        title: 'Silla Gamer RGB',
-        price: '$3,500',
+        title: 'Silla Gamer RGB', price: '$3,500',
         firstMsg: '¡Hola! Sí sigue disponible la silla gamer 😄',
         reply: 'Está prácticamente nueva, solo la usé unos meses para home office.'
       },
       'Alejandra M.': {
         avatar: 'https://i.pravatar.cc/150?img=32',
         image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=100',
-        title: 'Procesador Ryzen 7',
-        price: '$4,200',
+        title: 'Procesador Ryzen 7', price: '$4,200',
         firstMsg: 'Hola, ¿el Ryzen 7 incluye ventilador?',
         reply: 'Sí, viene con su cooler original y garantía de funcionamiento.'
-      },
-      'Daniel López': {
-        avatar: 'https://i.pravatar.cc/150?img=15',
-        image: 'https://images.unsplash.com/photo-1510557880182-3c9d6dff1f7a?w=100',
-        title: 'iPhone 14 Pro',
-        price: '$14,900',
-        firstMsg: '¿Todavía tienes el iPhone disponible?',
-        reply: 'Sí, sigue disponible y puedo compartir más fotos si gustas.'
       }
     };
 
@@ -234,71 +184,43 @@
     const inputMsg = document.getElementById('messageInput');
     const sendBtn = document.getElementById('sendBtn');
     const conversations = document.querySelectorAll('.conversation');
-    const sellerAvatar = document.getElementById('sellerAvatar');
-    const sellerNameSpan = document.getElementById('sellerName');
-    const productImg = document.getElementById('productImage');
-    const productTitleSpan = document.getElementById('productTitle');
-    const productPriceSpan = document.getElementById('productPrice');
-
-    function scrollToBottom() {
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-
+    
+    function scrollToBottom() { messagesContainer.scrollTop = messagesContainer.scrollHeight; }
     function appendMessage(text, sent = true) {
       const bubble = document.createElement('div');
       bubble.className = `message ${sent ? 'sent' : 'received'}`;
       bubble.innerHTML = `${text}<div class="message-time">Ahora</div>`;
-      messagesContainer.appendChild(bubble);
-      scrollToBottom();
+      messagesContainer.appendChild(bubble); scrollToBottom();
     }
 
-    function switchConversation(convoElement) {
+    conversations.forEach(convo => convo.addEventListener('click', () => {
       conversations.forEach(c => c.classList.remove('active'));
-      convoElement.classList.add('active');
-      const seller = convoElement.dataset.seller;
+      convo.classList.add('active');
+      const seller = convo.dataset.seller;
       const data = convoData[seller];
       if (!data) return;
-
-      sellerAvatar.src = data.avatar;
-      sellerNameSpan.textContent = seller;
-      productImg.src = data.image;
-      productTitleSpan.textContent = data.title;
-      productPriceSpan.textContent = data.price;
-
+      document.getElementById('sellerAvatar').src = data.avatar;
+      document.getElementById('sellerName').textContent = seller;
+      document.getElementById('productImage').src = data.image;
+      document.getElementById('productTitle').textContent = data.title;
+      document.getElementById('productPrice').textContent = data.price;
       messagesContainer.innerHTML = `
         <div class="message received">${data.firstMsg}<div class="message-time">10:30 AM</div></div>
         <div class="message sent">Perfecto, ¿podemos hablar un poco más del producto?<div class="message-time">10:31 AM</div></div>
         <div class="message received">${data.reply}<div class="message-time">10:32 AM</div></div>
       `;
       scrollToBottom();
-    }
-
-    conversations.forEach(convo => {
-      convo.addEventListener('click', () => switchConversation(convo));
-    });
+    }));
 
     function sendMessage() {
       const text = inputMsg.value.trim();
       if (!text) return;
-      appendMessage(text, true);
-      inputMsg.value = '';
-      setTimeout(() => {
-        appendMessage('👍 Perfecto, ¿te parece si nos vemos en un punto público cercano?', false);
-      }, 1200);
+      appendMessage(text, true); inputMsg.value = '';
+      setTimeout(() => appendMessage('👍 Perfecto, ¿te parece si nos vemos en un punto público cercano?', false), 1200);
     }
-
     sendBtn.addEventListener('click', sendMessage);
-    inputMsg.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') sendMessage();
-    });
-
-    document.querySelectorAll('.reply-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        inputMsg.value = chip.textContent.trim();
-        inputMsg.focus();
-      });
-    });
-
+    inputMsg.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage(); });
+    document.querySelectorAll('.reply-chip').forEach(chip => chip.addEventListener('click', () => { inputMsg.value = chip.textContent.trim(); inputMsg.focus(); }));
     scrollToBottom();
   </script>
 </body>
