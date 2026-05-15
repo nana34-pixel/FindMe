@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Me | Marketplace Local</title>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="global.css">
+  <style>
+
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div class="brand-badge"><i class="fa-solid fa-store"></i></div><div>Find Me</div></div>
+    <div class="topbar-inner">
+      <div class="searchbar" role="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="searchInput" type="text" placeholder="Buscar productos, marcas, vendedores..." />
+      </div>
+      <button class="location-chip"><i class="fa-solid fa-map-pin"></i> Ciudad López Mateos</button>
+      <button class="pill-btn primary" onclick="window.location.href='productos.html'"><i class="fa-solid fa-plus"></i><span>Vender</span></button>
+      <button class="pill-btn" onclick="window.location.href='login.html'"><i class="fa-regular fa-user"></i><span>Mi cuenta</span></button>
+      <!-- CAMPANA con panel de notificaciones -->
+      <button class="icon-btn" id="notificationBell"><i class="fa-regular fa-bell"></i><span class="badge"></span></button>
+      <img class="avatar" src="https://i.pravatar.cc/150?img=12" alt="Perfil" />
+    </div>
+  </header>
+
+  <!-- Panel flotante de notificaciones -->
+  <div id="notifPanel" class="notifications-panel">
+    <div class="notif-header">
+      <h3><i class="fa-regular fa-bell"></i> Notificaciones</h3>
+      <button id="closeNotifPanel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="notif-list" id="notifList">
+      <!-- Ejemplo de notificación de venta (activa) -->
+      <div class="notif-item" data-redirect="chat.html">
+        <div class="notif-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+        <div class="notif-content">
+          <strong>🎉 ¡Vendiste “Silla Gamer”!</strong>
+          <p>El comprador te ha enviado un mensaje. Haz clic para responder.</p>
+          <div class="notif-time">Hace 5 minutos</div>
+        </div>
+      </div>
+      <!-- Segundo ejemplo (informativo) -->
+      <div class="notif-item" data-redirect="#">
+        <div class="notif-icon"><i class="fa-regular fa-star"></i></div>
+        <div class="notif-content">
+          <strong>Nuevo seguidor</strong>
+          <p>Carlos R. empezó a seguir tu tienda.</p>
+          <div class="notif-time">Hace 2 horas</div>
+        </div>
+      </div>
+      <!-- Mensaje similar a la imagen: "No tienes notificaciones" se muestra solo si no hay, pero aquí hay dos -->
+    </div>
+  </div>
+
+  <div class="layout with-right-panel">
+    <aside class="sidebar">
+      <div class="section"><h4>Navegación</h4>
+        <a class="nav-item active" href="index.html"><i class="fa-solid fa-house"></i>Inicio</a>
+        <a class="nav-item" href="#"><i class="fa-solid fa-compass"></i>Explorar cerca</a>
+        <a class="nav-item" href="#"><i class="fa-regular fa-bookmark"></i>Guardados</a>
+        <a class="nav-item" href="chat.html"><i class="fa-regular fa-message"></i>Mensajes</a>
+        <a class="nav-item" href="productos.html"><i class="fa-solid fa-box"></i>Mis publicaciones</a>
+        <a class="nav-item" href="#"><i class="fa-regular fa-bell"></i>Notificaciones</a>
+        <a class="nav-item" href="#"><i class="fa-regular fa-heart"></i>Favoritos</a>
+        <a class="nav-item" href="login.html" style="margin-top:12px; border-top:1px solid var(--border);"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>
+      </div>
+      <div class="section"><h4>Categorías</h4>
+        <div class="category-list" id="categoryList">
+          <button class="category-item active" data-category="all"><span>Todos</span><small>20</small></button>
+          <button class="category-item" data-category="technology"><span>Tecnología</span><small>8</small></button>
+          <button class="category-item" data-category="home"><span>Hogar</span><small>4</small></button>
+          <button class="category-item" data-category="fashion"><span>Ropa</span><small>3</small></button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="stack">
+        <section class="hero card">
+          <div>
+            <h1>Encuentra lo que necesitas cerca de ti</h1>
+            <p>Compra y vende con personas reales de tu zona. Descubre productos, servicios y oportunidades locales.</p>
+            <div class="hero-actions">
+              <button class="primary-btn" id="exploreNearbyBtn"><i class="fa-solid fa-compass"></i> Explorar cerca</button>
+              <button class="secondary-btn" onclick="window.location.href='productos.html'"><i class="fa-solid fa-upload"></i> Publicar producto</button>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="map-line"></div>
+            <div class="people">
+              <div class="group">
+                <img class="mini-avatar" src="https://i.pravatar.cc/120?img=25" alt=""/>
+                <img class="mini-avatar" src="https://i.pravatar.cc/120?img=32" alt=""/>
+                <img class="mini-avatar" src="https://i.pravatar.cc/120?img=15" alt=""/>
+                <div><strong>Conecta localmente</strong><span>Compradores y vendedores cerca</span></div>
+              </div>
+              <div class="badge-tag green"><i class="fa-solid fa-location-crosshairs"></i> Cerca de ti</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="filters">
+          <button class="chip active" data-filter="nearby"><span class="dot"></span> Cerca de mí</button>
+          <button class="chip" data-filter="budget">Menos de $5000</button>
+          <button class="chip" data-filter="new">Nuevos</button>
+          <button class="chip" data-filter="used">Usados</button>
+        </section>
+
+        <section class="content-grid" id="productGrid"></section>
+      </div>
+    </main>
+
+    <aside class="right-panel">
+      <button class="btn-map-toggle" id="toggleMap">
+        <i class="fa-solid fa-map"></i> <span>Ver Mapa</span>
+      </button>
+
+      <div id="standardInfo" style="display: block;">
+        <div class="panel-card">
+          <div class="panel-header"><h3>Explora cerca de ti</h3><i class="fa-solid fa-map-pin" style="color:var(--green)"></i></div>
+          <div class="mini-list">
+            <div class="mini-item"><div><strong>Restaurantes</strong><small>A 5 min</small></div><i class="fa-solid fa-utensils"></i></div>
+            <div class="mini-item"><div><strong>Servicios</strong><small>Fontanería, clases</small></div><i class="fa-solid fa-wrench"></i></div>
+            <div class="mini-item"><div><strong>Tiendas</strong><small>Locales con entrega rápida</small></div><i class="fa-solid fa-store"></i></div>
+          </div>
+        </div>
+        <div class="panel-card">
+          <div class="panel-header"><h3>Promociones</h3></div>
+          <p>Publica gratis tu primer anuncio</p>
+          <div class="promo-row"><strong>0% comisión</strong><button class="primary-btn" style="padding:10px 16px;">Aprovechar</button></div>
+        </div>
+        <div class="panel-card">
+          <div class="panel-header"><h3>Sugerencias</h3></div>
+          <div class="activity-list">
+            <div class="activity-item"><div class="dot"></div><div><strong>Silla gamer en oferta</strong><span>Entrega en punto medio</span></div></div>
+            <div class="activity-item"><div class="dot"></div><div><strong>Monitor curvo 27"</strong><span>Muy buscado esta semana</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="mapView" class="map-container" style="display: none;">
+        <div id="realMap" style="width:100%; height:100%; min-height:400px;"></div>
+        <div style="position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.95); padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; white-space: nowrap; pointer-events: none;">
+          <i class="fa-solid fa-location-crosshairs" style="color: var(--blue);"></i> Ciudad López Mateos (simulado)
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <button class="mobile-fab" onclick="window.location.href='productos.html'"><i class="fa-solid fa-plus"></i></button>
+
+  <div class="chatbot" role="button" id="chatbotContainer">
+    <div class="bot-icon"><i class="fa-solid fa-robot"></i></div>
+    <div><div class="label">Chatbot</div><div class="subtitle">Asistente IA en línea</div></div>
+    <span class="close-chatbot" id="closeChatbotBtn"><i class="fa-solid fa-xmark"></i></span>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="../Backend/archivo.js"></script>
+</body>
+</html>

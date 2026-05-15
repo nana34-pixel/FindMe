@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Me | Chat con Vendedor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="global.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div class="brand-badge"><i class="fa-solid fa-store"></i></div><div>Find Me</div></div>
+    <div class="topbar-inner">
+      <div class="searchbar"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Buscar productos..."></div>
+      <button class="location-chip" type="button"><i class="fa-solid fa-map-pin"></i> Ciudad López Mateos</button>
+      <button class="pill-btn primary" type="button" onclick="window.location.href='productos.html'"><i class="fa-solid fa-plus"></i><span>Vender</span></button>
+      <button class="pill-btn" type="button" onclick="window.location.href='login.html'"><i class="fa-regular fa-user"></i><span>Mi cuenta</span></button>
+      <button class="icon-btn" id="notificationBell" type="button"><i class="fa-regular fa-bell"></i><span class="badge"></span></button>
+      <img class="avatar" src="https://i.pravatar.cc/150?img=12" alt="Perfil">
+    </div>
+  </header>
+<div id="notifPanel" class="notifications-panel">
+  <div class="notif-header">
+    <h3>
+      <i class="fa-regular fa-bell"></i>
+      Notificaciones
+    </h3>
+
+    <button id="closeNotifPanel">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <div class="notif-list">
+
+    <div class="notif-item" data-redirect="chat.html">
+      <div class="notif-icon">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </div>
+
+      <div class="notif-content">
+        <strong>🎉 Nuevo mensaje</strong>
+        <p>Fernando Ruiz respondió tu mensaje.</p>
+        <div class="notif-time">Hace 2 min</div>
+      </div>
+    </div>
+
+    <div class="notif-item">
+      <div class="notif-icon">
+        <i class="fa-regular fa-star"></i>
+      </div>
+
+      <div class="notif-content">
+        <strong>Producto guardado</strong>
+        <p>Tu publicación recibió un favorito.</p>
+        <div class="notif-time">Hace 1 hora</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="section">
+        <h4>Navegación</h4>
+        <a class="nav-item" href="index.html"><i class="fa-solid fa-house"></i>Inicio</a>
+        <a class="nav-item active" href="chat.html"><i class="fa-regular fa-message"></i>Mensajes</a>
+        <a class="nav-item" href="productos.html"><i class="fa-solid fa-box"></i>Mis publicaciones</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="chat-layout">
+        <section class="card chat-list">
+          <div class="chat-search"><div class="chat-search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Buscar en mis mensajes..."></div></div>
+          <div class="conversation-list" id="conversationList">
+            <div class="conversation active" data-seller="Fernando Ruiz" data-product="Silla Gamer" data-status="1 nuevo"><img src="https://i.pravatar.cc/150?img=13" alt="Fernando Ruiz"><div class="conversation-info"><h4>Fernando Ruiz</h4><p>Silla Gamer RGB</p><div class="list-meta"><i class="fa-regular fa-clock"></i><span>Hace 5 min</span></div></div><div class="new-badge">1 nuevo</div></div>
+            <div class="conversation" data-seller="Alejandra M." data-product="Procesador Ryzen" data-status=""><img src="https://i.pravatar.cc/150?img=32" alt="Alejandra M."><div class="conversation-info"><h4>Alejandra M.</h4><p>Procesador Ryzen 7</p><div class="list-meta"><i class="fa-regular fa-clock"></i><span>Hace 40 min</span></div></div></div>
+          </div>
+        </section>
+
+        <section class="card chat-active">
+          <div class="chat-header">
+            <div class="chat-user"><img id="sellerAvatar" src="https://i.pravatar.cc/150?img=13" alt="Vendedor"><div><h3 id="sellerName">Fernando Ruiz</h3><div class="online"><i class="fa-solid fa-circle" style="font-size:8px"></i><span>En línea</span></div></div></div>
+            <div class="chat-tools">
+              <div class="mini-icon" onclick="showToast('Llamando a Fernando...', 'fa-solid fa-phone')"><i class="fa-solid fa-phone"></i></div>
+              <div class="mini-icon" onclick="showToast('Centro de seguridad abierto', 'fa-solid fa-shield-halved')"><i class="fa-solid fa-shield-halved"></i></div>
+            </div>
+          </div>
+          <div class="product-context">
+            <div class="product-context-left"><img id="productImage" src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=100" alt="Producto"><div><h4 id="productTitle">Silla Gamer RGB</h4><div class="product-price" id="productPrice">$3,500</div></div></div>
+            <button class="view-btn" type="button" onclick="window.location.href='vistaproducto.html'">Ver anuncio</button>
+          </div>
+          <div class="messages" id="messages">
+            <div class="message received">¡Hola! Sí sigue disponible la silla gamer 😄<div class="message-time">10:30 AM</div></div>
+            <div class="message sent">Perfecto, ¿tiene algún detalle o desgaste?<div class="message-time">10:31 AM</div></div>
+            <div class="message received">Está prácticamente nueva.<div class="message-time">10:32 AM</div></div>
+          </div>
+          <div class="chat-input">
+            <div class="quick-replies"><div class="reply-chip">¿Sigue disponible?</div><div class="reply-chip">Nos vemos en el centro</div></div>
+            <div class="input-area">
+              <div class="input-wrapper">
+                <i class="fa-solid fa-paperclip" style="cursor: pointer;" onclick="showToast('Subir archivo', 'fa-solid fa-upload')"></i>
+                <input type="text" id="messageInput" placeholder="Escribe un mensaje..." autocomplete="off">
+                <i class="fa-solid fa-location-dot" style="cursor: pointer;" onclick="showToast('Ubicación compartida', 'fa-solid fa-map-pin')"></i>
+              </div>
+              <button class="send-btn" id="sendBtn" type="button"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="../Backend/chat.js"></script>
+  <script src="../Backend/archivo.js"></script>
+</body>
+</html>

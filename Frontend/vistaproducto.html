@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FindMe! | Detalle de Producto</title>
+  <!-- Leaflet CSS y JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="global.css">
+  <style>
+
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div class="brand-badge"><i class="fa-solid fa-store"></i></div><div>FindMe!</div></div>
+    <div class="topbar-inner">
+      <div class="searchbar"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Buscar productos..."></div>
+      <button class="location-chip"><i class="fa-solid fa-map-pin"></i> Ciudad López Mateos</button>
+      <button class="pill-btn primary" onclick="window.location.href='productos.html'"><i class="fa-solid fa-plus"></i><span>Vender</span></button>
+      <img class="avatar" src="https://i.pravatar.cc/150?img=12" alt="Perfil">
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="section">
+        <h4>Navegación</h4>
+        <a class="nav-item" href="index.html"><i class="fa-solid fa-house"></i>Inicio</a>
+        <a class="nav-item" href="chat.html"><i class="fa-regular fa-message"></i>Mensajes</a>
+        <a class="nav-item" href="productos.html"><i class="fa-solid fa-box"></i>Mis publicaciones</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="breadcrumbs"><a href="index.html">Inicio</a><i class="fa-solid fa-chevron-right" style="font-size:11px; margin: 0 8px;"></i><span>Monitor Curvo 27"</span></div>
+      <div class="product-detail-layout">
+        <div class="product-gallery">
+          <div class="main-image-detail"><img id="mainImg" src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800" alt="Monitor Curvo"></div>
+          <div class="thumb-list">
+            <div class="thumb-detail active" data-img="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=150" alt="1"></div>
+            <div class="thumb-detail" data-img="https://images.unsplash.com/photo-1527814050087-3793815479db?w=800"><img src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=150" alt="2"></div>
+          </div>
+        </div>
+
+        <div class="product-info-detail">
+          <h1>Monitor Curvo 27 pulgadas</h1>
+          <div class="product-meta"><span><i class="fa-regular fa-clock"></i> Hace 2 horas</span><span><i class="fa-solid fa-location-crosshairs"></i> A 2.5 km</span><span><i class="fa-solid fa-star" style="color:#F59E0B;"></i> 4.9 (15 ventas)</span></div>
+          <div class="product-price-detail">$2,500</div>
+          <div class="action-buttons">
+            <button class="btn-primary" onclick="window.location.href='chat.html'"><i class="fa-regular fa-message"></i> Enviar mensaje</button>
+            <button class="btn-secondary" id="offerBtn"><i class="fa-solid fa-handshake"></i> Hacer oferta</button>
+          </div>
+          <div class="seller-card-detail">
+            <img class="seller-avatar-detail" src="https://i.pravatar.cc/150?img=12" alt="Vendedor">
+            <div class="seller-info">
+              <h4>Rolando S. <i class="fa-solid fa-circle-check verified-icon" title="Vendedor verificado"></i></h4>
+              <div class="seller-stars"><i class="fa-solid fa-star"></i> 4.9/5</div>
+            </div>
+            <!-- Botón para ver ubicación -->
+            <button class="pill-btn" id="showLocationBtn" style="margin-left:auto; background: var(--blue); color: white; border: none;">
+              <i class="fa-solid fa-map-pin"></i> Ver ubicación del producto
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal del mapa -->
+  <div id="mapModal" class="map-modal">
+    <div class="map-modal-content">
+      <div class="map-modal-header">
+        <h3><i class="fa-solid fa-location-dot"></i> Ubicación del Punto Cercano
+        </h3>
+        <button id="closeMapModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="productMap" class="map-container-modal"></div>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="../Backend/mapa.js"></script>
+</body>
+</html>
